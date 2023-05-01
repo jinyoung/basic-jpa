@@ -3,11 +3,14 @@
 
 ```
 http :8080/members name="신창섭" address[city]="서울"
-http PUT "http://localhost:8080/members/1/deactivate"
 
 http http://localhost:8080/memberAudits member="http://localhost:8080/members/1" operation="CREATE" date="2023-05-01"
 
 http "http://localhost:8080/memberAudits/2/member"
+http "http://localhost:8080/members/1/history"
+
+http PUT "http://localhost:8080/members/1/deactivate"
+
 http "http://localhost:8080/members/1/history"
 
 ```

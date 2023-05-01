@@ -47,7 +47,7 @@ public class Member {
 
     public void deactivate(){
         setState("DEACTIVATED");
-        //
+        getHistory().stream().forEach(history->{history.deactivate();});
     }
     
 }

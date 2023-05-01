@@ -24,4 +24,8 @@ public class MemberAudit{
     @ManyToOne
     Member member;
 
+    public void deactivate(){
+        setOperation("DEACTIVATED");
+    }
+
 }

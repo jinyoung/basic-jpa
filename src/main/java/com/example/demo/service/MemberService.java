@@ -19,17 +19,17 @@ public class MemberService {
     MemberRepository repository;
 
 
-    @RequestMapping(path="/members",
-        method=RequestMethod.POST,
-        produces = "application/json;charset=UTF-8"
-    )
-    public void save(@RequestBody MemberDTO memberDTO){
-        Member member = new Member();
-        member.setName(memberDTO.getChangedName());
+    // @RequestMapping(path="/members",
+    //     method=RequestMethod.POST,
+    //     produces = "application/json;charset=UTF-8"
+    // )
+    // public void save(@RequestBody MemberDTO memberDTO){
+    //     Member member = new Member();
+    //     member.setName(memberDTO.getChangedName());
 
-        repository.save(member);
+    //     repository.save(member);
 
-    }
+    // }
 
     @RequestMapping(path="/members/{id}/deactivate",
         method=RequestMethod.PUT,
@@ -39,6 +39,7 @@ public class MemberService {
         
         repository.findById(id).ifPresent(member -> {
             member.deactivate();
+            repository.save(member);
         });
 
     }
